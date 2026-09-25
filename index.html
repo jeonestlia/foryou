@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Abdiel Purnama</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(123, 151, 139, .18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(185, 168, 139, .12),
+            transparent 35%
+        ),
+        #10191b;
+
+    color: #e9e7df;
+
+    font-family: "DM Sans", sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =================================
+   PAGE
+================================= */
+
+.page {
+    width: 100%;
+    min-height: 100vh;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 25px;
+
+    text-align: center;
+
+    animation: masuk .8s ease;
+}
+
+.page.active {
+    display: flex;
+}
+
+.content {
+    width: 100%;
+    max-width: 650px;
+}
+
+
+/* =================================
+   TEXT
+================================= */
+
+.label {
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: #9fb2a9;
+
+    margin-bottom: 22px;
+}
+
+h1,
+h2 {
+    font-family: "Playfair Display", serif;
+
+    font-weight: 400;
+
+    color: #f1eee6;
+}
+
+h1 {
+    font-size: clamp(48px, 10vw, 82px);
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-size: clamp(34px, 7vw, 56px);
+
+    line-height: 1.15;
+
+    margin-bottom: 22px;
+}
+
+p {
+    max-width: 520px;
+
+    margin: 0 auto 24px;
+
+    color: #aeb8b3;
+
+    font-size: 15px;
+
+    line-height: 1.85;
+}
+
+.italic {
+    font-family: "Playfair Display", serif;
+
+    font-style: italic;
+
+    color: #c7d0ca;
+
+    font-size: 19px;
+}
+
+
+/* =================================
+   BUTTON
+================================= */
+
+button {
+    font-family: "DM Sans", sans-serif;
+
+    cursor: pointer;
+}
+
+.next {
+    border: 1px solid rgba(159,178,169,.35);
+
+    background: #788f85;
+
+    color: #10191b;
+
+    padding: 13px 28px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    transition: .3s ease;
+}
+
+.next:hover {
+    background: #a8b9b0;
+
+    transform: translateY(-3px);
+}
+
+
+/* =================================
+   CARD
+================================= */
+
+.card {
+    background:
+        rgba(255,255,255,.055);
+
+    border: 1px solid
+        rgba(255,255,255,.09);
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 28px;
+
+    padding: 36px 28px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.18);
+}
+
+
+/* =================================
+   MUSIC PLAYER
+================================= */
+
+.music-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    width: 100%;
+
+    max-width: 390px;
+
+    margin: 28px auto;
+
+    padding: 15px 18px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    border-radius: 18px;
+
+    text-align: left;
+}
+
+.music-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #788f85;
+
+    color: #10191b;
+
+    font-size: 18px;
+}
+
+.music-info {
+    flex: 1;
+}
+
+.music-title {
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #eeeae1;
+}
+
+.music-artist {
+    font-size: 11px;
+
+    color: #8f9e97;
+
+    margin-top: 3px;
+}
+
+audio {
+    width: 100%;
+
+    height: 32px;
+}
+
+
+/* =================================
+   CHOICES
+================================= */
+
+.choice-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 14px;
+
+    margin-top: 30px;
+}
+
+.choice {
+    border: 1px solid
+        rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.045);
+
+    color: #dfe5e1;
+
+    border-radius: 22px;
+
+    padding: 28px 15px;
+
+    min-height: 140px;
+
+    transition: .3s ease;
+}
+
+.choice:hover {
+    transform: translateY(-6px);
+
+    background:
+        rgba(120,143,133,.12);
+
+    border-color:
+        rgba(159,178,169,.25);
+}
+
+.choice-icon {
+    font-size: 30px;
+
+    margin-bottom: 14px;
+
+    color: #a7b9af;
+}
+
+.choice-title {
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+
+/* =================================
+   BIG QUOTE
+================================= */
+
+.big-quote {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(30px, 6vw, 48px);
+
+    line-height: 1.3;
+
+    color: #eeeae1;
+}
+
+
+/* =================================
+   FINAL
+================================= */
+
+.final-name {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(15px, 3vw, 20px);
+
+    color: #9fb2a9;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =================================
+   STAR
+================================= */
+
+.star {
+    font-size: 70px;
+
+    margin: 15px 0 25px;
+
+    display: inline-block;
+
+    animation:
+        floating 2.5s ease-in-out infinite;
+}
+
+@keyframes floating {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+
+/* =================================
+   PARTICLES
+================================= */
+
+.particle {
+    position: fixed;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #a7b9af;
+
+    pointer-events: none;
+
+    animation: particleFall 4s linear forwards;
+
+    z-index: 999;
+}
+
+@keyframes particleFall {
+
+    from {
+        transform:
+            translateY(-20px)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    to {
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =================================
+   PAGE ANIMATION
+================================= */
+
+@keyframes masuk {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 600px) {
+
+    .page {
+        padding: 30px 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .choice {
+        min-height: 125px;
+
+        padding: 22px 10px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =================================
+     PAGE 1
+================================= -->
+
+<section class="page active">
+
+    <div class="content">
+
+        <div class="label">
+            there's something for you
+        </div>
+
+        <h1>
+            hey,<br>
+            Abdiel.
+        </h1>
+
+        <p class="italic">
+            just a little something.
+        </p>
+
+        <button
+            class="next"
+            onclick="nextPage()"
+        >
+            open
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     PAGE 2 — MUSIC
+================================= -->
+
+<section class="page">
+
+    <div class="content">
+
+        <div class="label">
+            01 / press play
+        </div>
+
+        <h2>
+            maybe this song<br>
+            reminds me of you.
+        </h2>
+
+        <p>
+            Nggak perlu banyak penjelasan.
+            Ada beberapa lagu yang entah kenapa
+            terasa lebih cocok kalau didengerin
+            sambil mikirin seseorang.
+        </p>
+
+
+        <div class="music-card">
+
+            <div class="music-icon">
+                ♪
+            </div>
+
+            <div class="music-info">
+
+                <div class="music-title">
+                    you!
+                </div>
+
+                <div class="music-artist">
+                    LANY
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--
+        TARUH FILE "you-lany.mp3"
+        DI FOLDER YANG SAMA DENGAN HTML INI
+        -->
+
+        <audio controls>
+            <source
+                src="you-lany.mp3"
+                type="audio/mpeg"
+            >
+
+            Browser kamu tidak mendukung
+            pemutar audio.
+        </audio>
+
+        <br><br>
+
+        <button
+            class="next"
+            onclick="nextPage()"
+        >
+            lanjut
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     PAGE 3
+================================= -->
+
+<section class="page">
+
+    <div class="content">
+
+        <div class="label">
+            02 / a little confession
+        </div>
+
+        <div class="card">
+
+            <div class="star">
+                ✦
+            </div>
+
+            <h2>
+                tentang kamu.
+            </h2>
+
+            <p>
+                Somehow, kamu jadi salah satu
+                orang yang punya tempat sendiri
+                di pikiranku.
+            </p>
+
+            <p>
+                Bukan karena kamu harus melakukan
+                sesuatu yang luar biasa.
+                Kadang justru karena hal-hal
+                kecil yang kamu lakukan tanpa sadar.
+            </p>
+
+            <p class="italic">
+                and maybe that's what makes you,
+                you.
+            </p>
+
+        </div>
+
+        <br>
+
+        <button
+            class="next"
+            onclick="nextPage()"
+        >
+            okay, lanjut...
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     PAGE 4 — CHOICES
+================================= -->
+
+<section class="page">
+
+    <div class="content">
+
+        <div class="label">
+            03 / pick one
+        </div>
+
+        <h2>
+            satu pertanyaan.
+        </h2>
+
+        <p>
+            pilih yang paling menggambarkan
+            Abdiel menurut kamu.
+        </p>
+
+
+        <div class="choice-grid">
+
+
+            <button
+                class="choice"
+                onclick="choose('first')"
+            >
+
+                <div class="choice-icon">
+                    ☼
+                </div>
+
+                <div class="choice-title">
+                    someone worth knowing
+                </div>
+
+            </button>
+
+
+
+            <button
+                class="choice"
+                onclick="choose('second')"
+            >
+
+                <div class="choice-icon">
+                    ♡
+                </div>
+
+                <div class="choice-title">
+                    someone worth remembering
+                </div>
+
+            </button>
+
+
+
+            <button
+                class="choice"
+                onclick="choose('third')"
+            >
+
+                <div class="choice-icon">
+                    ∞
+                </div>
+
+                <div class="choice-title">
+                    someone unexpectedly special
+                </div>
+
+            </button>
+
+
+
+            <button
+                class="choice"
+                onclick="choose('fourth')"
+            >
+
+                <div class="choice-icon">
+                    ?
+                </div>
+
+                <div class="choice-title">
+                    hmm... you decide.
+                </div>
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     PAGE 5 — RESULT
+================================= -->
+
+<section class="page">
+
+    <div class="content">
+
+        <div class="label">
+            apparently...
+        </div>
+
+        <div class="card">
+
+            <h2 id="choiceTitle">
+                interesting.
+            </h2>
+
+            <p id="choiceText">
+                ternyata kamu punya pilihan.
+            </p>
+
+        </div>
+
+        <br>
+
+        <button
+            class="next"
+            onclick="nextPage()"
+        >
+            there's more
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     PAGE 6
+================================= -->
+
+<section class="page">
+
+    <div class="content">
+
+        <div class="label">
+            04 / one more thing
+        </div>
+
+        <h2>
+            kalau suatu hari<br>
+            kamu buka ini lagi...
+        </h2>
+
+        <p class="big-quote">
+            I hope you still remember
+            this little corner of the internet.
+        </p>
+
+        <p>
+            Karena mungkin nanti banyak hal
+            berubah. Banyak cerita baru datang.
+            Tapi setidaknya pernah ada satu
+            halaman kecil yang dibuat khusus
+            untuk kamu.
+        </p>
+
+        <button
+            class="next"
+            onclick="nextPage()"
+        >
+            lanjut
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     PAGE 7
+================================= -->
+
+<section class="page">
+
+    <div class="content">
+
+        <div class="label">
+            05 / plot twist
+        </div>
+
+        <div class="card">
+
+            <h2>
+                jadi...
+            </h2>
+
+            <p>
+                nggak ada hadiah mahal.
+                nggak ada sesuatu yang
+                harus kamu punya.
+            </p>
+
+            <p>
+                Cuma satu website kecil,
+                satu lagu, dan beberapa kata
+                yang mungkin sebenarnya
+                nggak perlu aku jelasin panjang-panjang.
+            </p>
+
+            <p class="italic">
+                you already know.
+            </p>
+
+        </div>
+
+        <br>
+
+        <button
+            class="next"
+            onclick="nextPage()"
+        >
+            one last thing
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     PAGE 8 — FINAL
+================================= -->
+
+<section class="page">
+
+    <div class="content">
+
+        <div class="label">
+            for Abdiel Purnama
+        </div>
+
+        <div class="final-name">
+            Abdiel Purnama
+        </div>
+
+        <h2>
+            you are,<br>
+            somehow,
+        </h2>
+
+        <p class="big-quote">
+            one of my favorite people.
+        </p>
+
+        <p>
+            That's it.
+            No dramatic ending.
+            No complicated explanation.
+        </p>
+
+        <p class="italic">
+            just you.
+        </p>
+
+        <br>
+
+        <button
+            class="next"
+            onclick="finalSurprise()"
+        >
+            satu kejutan terakhir
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+/* =================================
+   SISTEM HALAMAN
+================================= */
+
+let halaman = 0;
+
+const pages =
+    document.querySelectorAll(".page");
+
+
+function nextPage() {
+
+    if (halaman >= pages.length - 1) {
+        return;
+    }
+
+    pages[halaman]
+        .classList
+        .remove("active");
+
+    halaman++;
+
+    pages[halaman]
+        .classList
+        .add("active");
+
+}
+
+
+
+/* =================================
+   PILIHAN
+================================= */
+
+function choose(type) {
+
+    const title =
+        document.getElementById("choiceTitle");
+
+    const text =
+        document.getElementById("choiceText");
+
+
+    if (type === "first") {
+
+        title.innerHTML =
+            "someone worth knowing.";
+
+        text.innerHTML =
+            "Honestly, iya. Ada orang yang " +
+            "semakin dikenal malah semakin " +
+            "menarik. Kamu salah satunya.";
+
+    }
+
+
+    if (type === "second") {
+
+        title.innerHTML =
+            "someone worth remembering.";
+
+        text.innerHTML =
+            "Ada beberapa orang yang mungkin " +
+            "nggak setiap hari ada di sekitar kita, " +
+            "tapi tetap somehow punya tempat " +
+            "sendiri di ingatan.";
+
+    }
+
+
+    if (type === "third") {
+
+        title.innerHTML =
+            "unexpectedly special.";
+
+        text.innerHTML =
+            "Nah... ini yang agak bahaya. " +
+            "Karena kadang seseorang bisa jadi " +
+            "spesial tanpa kita pernah merencanakannya.";
+
+    }
+
+
+    if (type === "fourth") {
+
+        title.innerHTML =
+            "you decide.";
+
+        text.innerHTML =
+            "Fair enough. Tapi kalau aku yang " +
+            "jawab, mungkin jawabannya sudah " +
+            "terlalu obvious.";
+
+    }
+
+
+    pages[3]
+        .classList
+        .remove("active");
+
+    pages[4]
+        .classList
+        .add("active");
+
+    halaman = 4;
+
+}
+
+
+
+/* =================================
+   FINAL SURPRISE
+================================= */
+
+function finalSurprise() {
+
+    for (let i = 0; i < 70; i++) {
+
+        setTimeout(() => {
+
+            const particle =
+                document.createElement("div");
+
+            particle.className =
+                "particle";
+
+            particle.style.left =
+                Math.random() * 100 + "%";
+
+            particle.style.animationDuration =
+                (2.5 + Math.random() * 2.5) + "s";
+
+            document.body.appendChild(
+                particle
+            );
+
+
+            setTimeout(() => {
+
+                particle.remove();
+
+            }, 5000);
+
+        }, i * 35);
+
+    }
+
+
+    setTimeout(() => {
+
+        alert(
+            "Okay, that's it. " +
+            "Thanks for being you, Abdiel."
+        );
+
+    }, 900);
+
+}
+
+</script>
+
+</body>
+</html>
