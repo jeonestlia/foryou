@@ -288,7 +288,9 @@ button {
 
     width: 100%;
 
-    height: 152px;
+    height: 152px !important;
+
+    min-height: 152px;
 
     border: none;
 }
@@ -497,8 +499,10 @@ button {
         padding: 22px 10px;
     }
 
+    /* Spotify tetap compact di HP */
     .spotify-player iframe {
-        height: 152px;
+        height: 152px !important;
+        min-height: 152px;
     }
 
 }
