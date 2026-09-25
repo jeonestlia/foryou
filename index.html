@@ -198,7 +198,7 @@ button {
 
 
 /* =================================
-   MUSIC PLAYER
+   MUSIC
 ================================= */
 
 .music-card {
@@ -212,7 +212,7 @@ button {
 
     max-width: 390px;
 
-    margin: 28px auto;
+    margin: 28px auto 18px;
 
     padding: 15px 18px;
 
@@ -266,10 +266,29 @@ button {
     margin-top: 3px;
 }
 
-audio {
+
+/* =================================
+   SPOTIFY
+================================= */
+
+.spotify-player {
     width: 100%;
 
-    height: 32px;
+    max-width: 390px;
+
+    margin: 0 auto 25px;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+}
+
+.spotify-player iframe {
+    display: block;
+
+    width: 100%;
+
+    border: none;
 }
 
 
@@ -476,6 +495,10 @@ audio {
         padding: 22px 10px;
     }
 
+    .spotify-player iframe {
+        height: 352px;
+    }
+
 }
 
 </style>
@@ -564,22 +587,26 @@ audio {
 
         </div>
 
-        <!--
-        TARUH FILE "you-lany.mp3"
-        DI FOLDER YANG SAMA DENGAN HTML INI
-        -->
 
-        <audio controls>
-            <source
-                src="you-lany.mp3"
-                type="audio/mpeg"
-            >
+        <!-- =================================
+             SPOTIFY EMBED
+        ================================= -->
 
-            Browser kamu tidak mendukung
-            pemutar audio.
-        </audio>
+        <div class="spotify-player">
 
-        <br><br>
+            <iframe
+                data-testid="embed-iframe"
+                src="https://open.spotify.com/embed/track/2VMhO32IsyhshnUoKhjCBE?utm_source=generator&theme=0&si=fc25c199f28f442f"
+                width="100%"
+                height="352"
+                frameborder="0"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+            </iframe>
+
+        </div>
+
 
         <button
             class="next"
